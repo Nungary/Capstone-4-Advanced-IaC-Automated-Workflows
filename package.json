@@ -1,0 +1,25 @@
+{
+  "name": "capstone4-cicd-workflow",
+  "version": "1.0.0",
+  "description": "Capstone 4 – Multi-Account Automated & Governed Cloud Platform",
+  "main": "bin/app.js",
+  "scripts": {
+    "build":   "tsc",
+    "watch":   "tsc -w",
+    "cdk":     "cdk",
+    "deploy":  "cdk deploy --all --require-approval never",
+    "destroy": "cdk destroy --all --force",
+    "synth":   "cdk synth",
+    "diff":    "cdk diff"
+  },
+  "devDependencies": {
+    "@types/node":        "^20.0.0",
+    "aws-cdk":            "^2.140.0",
+    "source-map-support": "^0.5.21",
+    "typescript":         "^5.4.0"
+  },
+  "dependencies": {
+    "aws-cdk-lib":  "^2.140.0",
+    "constructs":   "^10.3.0"
+  }
+}
