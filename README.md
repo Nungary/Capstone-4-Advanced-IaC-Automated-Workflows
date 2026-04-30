@@ -179,7 +179,7 @@ aws secretsmanager delete-secret --secret-id github-token --force-delete-without
 
 ## Lessons Learned
 
-- **CDK Pipelines** self-mutate — after the first deploy the pipeline updates itself from code changes.
+- **CDK Pipelines** self-mutate after the first deploy the pipeline updates itself from code changes.
 - **Step Functions retries** are defined per-error type, allowing fine-grained resilience without code changes.
 - **SSM Parameter Store** decouples config from code — no Lambda redeployment needed to change a value.
 - **`grantRead()`** in CDK auto-generates least-privilege IAM policies, reducing manual policy management.
