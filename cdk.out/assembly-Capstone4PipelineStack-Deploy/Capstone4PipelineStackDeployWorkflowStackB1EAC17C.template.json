@@ -1,0 +1,455 @@
+{
+ "Resources": {
+  "AppGreeting4455FE37": {
+   "Type": "AWS::SSM::Parameter",
+   "Properties": {
+    "Description": "Greeting message retrieved dynamically by Lambda",
+    "Name": "/app/config/greeting",
+    "Type": "String",
+    "Value": "Hello from CI/CD Automated Infrastructure!"
+   },
+   "Metadata": {
+    "aws:cdk:path": "Capstone4PipelineStack/Deploy/WorkflowStack/AppGreeting/Resource"
+   }
+  },
+  "WorkflowTaskFunctionServiceRole00D309DE": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "Capstone4PipelineStack/Deploy/WorkflowStack/WorkflowTaskFunction/ServiceRole/Resource"
+   }
+  },
+  "WorkflowTaskFunctionServiceRoleDefaultPolicy464D08AF": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "ssm:DescribeParameters",
+        "ssm:GetParameter",
+        "ssm:GetParameterHistory",
+        "ssm:GetParameters"
+       ],
+       "Effect": "Allow",
+       "Resource": {
+        "Fn::Join": [
+         "",
+         [
+          "arn:",
+          {
+           "Ref": "AWS::Partition"
+          },
+          ":ssm:us-east-1:430287290736:parameter",
+          {
+           "Ref": "AppGreeting4455FE37"
+          }
+         ]
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "WorkflowTaskFunctionServiceRoleDefaultPolicy464D08AF",
+    "Roles": [
+     {
+      "Ref": "WorkflowTaskFunctionServiceRole00D309DE"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "Capstone4PipelineStack/Deploy/WorkflowStack/WorkflowTaskFunction/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "WorkflowTaskFunction869B9CEC": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-430287290736-us-east-1",
+     "S3Key": "5ddf014743d29e3d1d953dd3884df47428ce8df2898cb6b288b92fc4eb924c1d.zip"
+    },
+    "Description": "Retrieves greeting from SSM Parameter Store",
+    "Environment": {
+     "Variables": {
+      "SSM_PARAM_NAME": {
+       "Ref": "AppGreeting4455FE37"
+      }
+     }
+    },
+    "FunctionName": "capstone4-workflow-task",
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "WorkflowTaskFunctionServiceRole00D309DE",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs18.x",
+    "Timeout": 30
+   },
+   "DependsOn": [
+    "WorkflowTaskFunctionServiceRoleDefaultPolicy464D08AF",
+    "WorkflowTaskFunctionServiceRole00D309DE"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "Capstone4PipelineStack/Deploy/WorkflowStack/WorkflowTaskFunction/Resource",
+    "aws:asset:path": "..\\asset.5ddf014743d29e3d1d953dd3884df47428ce8df2898cb6b288b92fc4eb924c1d",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "WorkflowTaskFunctionLogRetentionF94CC6D6": {
+   "Type": "Custom::LogRetention",
+   "Properties": {
+    "ServiceToken": {
+     "Fn::GetAtt": [
+      "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A",
+      "Arn"
+     ]
+    },
+    "LogGroupName": {
+     "Fn::Join": [
+      "",
+      [
+       "/aws/lambda/",
+       {
+        "Ref": "WorkflowTaskFunction869B9CEC"
+       }
+      ]
+     ]
+    },
+    "RetentionInDays": 7
+   },
+   "Metadata": {
+    "aws:cdk:path": "Capstone4PipelineStack/Deploy/WorkflowStack/WorkflowTaskFunction/LogRetention/Resource"
+   }
+  },
+  "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "Capstone4PipelineStack/Deploy/WorkflowStack/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/Resource"
+   }
+  },
+  "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "logs:DeleteRetentionPolicy",
+        "logs:PutRetentionPolicy"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB",
+    "Roles": [
+     {
+      "Ref": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "Capstone4PipelineStack/Deploy/WorkflowStack/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Handler": "index.handler",
+    "Runtime": "nodejs22.x",
+    "Timeout": 900,
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-430287290736-us-east-1",
+     "S3Key": "2819175352ad1ce0dae768e83fc328fb70fb5f10b4a8ff0ccbcb791f02b0716d.zip"
+    },
+    "Role": {
+     "Fn::GetAtt": [
+      "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB",
+      "Arn"
+     ]
+    }
+   },
+   "DependsOn": [
+    "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB",
+    "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "Capstone4PipelineStack/Deploy/WorkflowStack/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Resource",
+    "aws:asset:path": "..\\asset.2819175352ad1ce0dae768e83fc328fb70fb5f10b4a8ff0ccbcb791f02b0716d",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "StateMachineLogs3CB16D3C": {
+   "Type": "AWS::Logs::LogGroup",
+   "Properties": {
+    "LogGroupName": "/aws/states/capstone4-workflow",
+    "RetentionInDays": 7
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "Capstone4PipelineStack/Deploy/WorkflowStack/StateMachineLogs/Resource"
+   }
+  },
+  "Capstone4StateMachineRole78DFAB8E": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "states.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "Capstone4PipelineStack/Deploy/WorkflowStack/Capstone4StateMachine/Role/Resource"
+   }
+  },
+  "Capstone4StateMachineRoleDefaultPolicy6867E001": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": "lambda:InvokeFunction",
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "WorkflowTaskFunction869B9CEC",
+          "Arn"
+         ]
+        },
+        {
+         "Fn::Join": [
+          "",
+          [
+           {
+            "Fn::GetAtt": [
+             "WorkflowTaskFunction869B9CEC",
+             "Arn"
+            ]
+           },
+           ":*"
+          ]
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "logs:CreateLogDelivery",
+        "logs:DeleteLogDelivery",
+        "logs:DescribeLogGroups",
+        "logs:DescribeResourcePolicies",
+        "logs:GetLogDelivery",
+        "logs:ListLogDeliveries",
+        "logs:PutResourcePolicy",
+        "logs:UpdateLogDelivery",
+        "xray:GetSamplingRules",
+        "xray:GetSamplingTargets",
+        "xray:PutTelemetryRecords",
+        "xray:PutTraceSegments"
+       ],
+       "Effect": "Allow",
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "Capstone4StateMachineRoleDefaultPolicy6867E001",
+    "Roles": [
+     {
+      "Ref": "Capstone4StateMachineRole78DFAB8E"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "Capstone4PipelineStack/Deploy/WorkflowStack/Capstone4StateMachine/Role/DefaultPolicy/Resource"
+   }
+  },
+  "Capstone4StateMachineA37E3075": {
+   "Type": "AWS::StepFunctions::StateMachine",
+   "Properties": {
+    "DefinitionString": {
+     "Fn::Join": [
+      "",
+      [
+       "{\"StartAt\":\"PreProcessing\",\"States\":{\"PreProcessing\":{\"Type\":\"Pass\",\"Comment\":\"Initialise workflow and pass input downstream\",\"Result\":{\"stage\":\"pre-processing\",\"ready\":true},\"ResultPath\":\"$.preProcess\",\"Next\":\"InvokeWorkflowTask\"},\"InvokeWorkflowTask\":{\"Next\":\"WorkflowSucceeded\",\"Retry\":[{\"ErrorEquals\":[\"Lambda.ClientExecutionTimeoutException\",\"Lambda.ServiceException\",\"Lambda.AWSLambdaException\",\"Lambda.SdkClientException\"],\"IntervalSeconds\":2,\"MaxAttempts\":6,\"BackoffRate\":2},{\"ErrorEquals\":[\"Lambda.ServiceException\",\"Lambda.AWSLambdaException\",\"States.TaskFailed\"],\"IntervalSeconds\":2,\"MaxAttempts\":2,\"BackoffRate\":2}],\"Catch\":[{\"ErrorEquals\":[\"States.ALL\"],\"ResultPath\":\"$.error\",\"Next\":\"WorkflowFailed\"}],\"Type\":\"Task\",\"Comment\":\"Invoke Lambda to fetch SSM greeting\",\"OutputPath\":\"$.Payload\",\"Resource\":\"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":states:::lambda:invoke\",\"Parameters\":{\"FunctionName\":\"",
+       {
+        "Fn::GetAtt": [
+         "WorkflowTaskFunction869B9CEC",
+         "Arn"
+        ]
+       },
+       "\",\"Payload.$\":\"$\"}},\"WorkflowSucceeded\":{\"Type\":\"Succeed\",\"Comment\":\"Workflow completed successfully\"},\"WorkflowFailed\":{\"Type\":\"Fail\",\"Error\":\"WorkflowError\",\"Cause\":\"Lambda invocation failed after retries\"}},\"TimeoutSeconds\":300}"
+      ]
+     ]
+    },
+    "LoggingConfiguration": {
+     "Destinations": [
+      {
+       "CloudWatchLogsLogGroup": {
+        "LogGroupArn": {
+         "Fn::GetAtt": [
+          "StateMachineLogs3CB16D3C",
+          "Arn"
+         ]
+        }
+       }
+      }
+     ],
+     "Level": "ALL"
+    },
+    "RoleArn": {
+     "Fn::GetAtt": [
+      "Capstone4StateMachineRole78DFAB8E",
+      "Arn"
+     ]
+    },
+    "StateMachineName": "capstone4-workflow-statemachine",
+    "TracingConfiguration": {
+     "Enabled": true
+    }
+   },
+   "DependsOn": [
+    "Capstone4StateMachineRoleDefaultPolicy6867E001",
+    "Capstone4StateMachineRole78DFAB8E"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "Capstone4PipelineStack/Deploy/WorkflowStack/Capstone4StateMachine/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/11PQW6DQAx8S+7GTUj7gCZSqkpURfAA5CwO2QC7CHsTVYi/V2ybqOppZmzZM5Ni+rLB9Ypukpi6TTp7xKlUMi3QTapJpF/0aF2T00g9K4+wP7mHmKGj/lgTTofgjFrvlvWdz2Cpx6nwHS/jiLnvrPmKTyKbQbYVibAKvi4AssVdMC3rjoSh843glPmmYGUXHTLfvI0+DMuTO59BlIfTr7HglJMIHMh2UAZjmGsolZQ/yJyti3H+6n/nlZK0glns9u6uvuUZYrpSqbGuiXVYfBgNw4PsT+4z6BB0Budrxos8XdNn3KS4Xl3E2mQMTm3PWPzgN+bgt9d/AQAA"
+   },
+   "Metadata": {
+    "aws:cdk:path": "Capstone4PipelineStack/Deploy/WorkflowStack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Outputs": {
+  "LambdaFunctionName": {
+   "Description": "Lambda function name",
+   "Value": {
+    "Ref": "WorkflowTaskFunction869B9CEC"
+   }
+  },
+  "SSMParameterName": {
+   "Description": "SSM Parameter storing the greeting",
+   "Value": {
+    "Ref": "AppGreeting4455FE37"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

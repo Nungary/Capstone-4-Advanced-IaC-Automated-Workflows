@@ -20,8 +20,8 @@ export class PipelineStack extends cdk.Stack {
 
     // ── Source: GitHub via CodeStar Connection ────────────────────────────────
     // Replace these two values with your own GitHub username and repo name.
-    const GITHUB_OWNER = 'YOUR_GITHUB_USERNAME';
-    const GITHUB_REPO  = 'YOUR_GITHUB_REPO_NAME';
+    const GITHUB_OWNER = 'Nungary';
+    const GITHUB_REPO  = 'Capstone-4-Advanced-IaC-Automated-Workflows';
 
     const pipeline = new pipelines.CodePipeline(this, 'Capstone4Pipeline', {
       pipelineName: 'capstone4-cicd-pipeline',

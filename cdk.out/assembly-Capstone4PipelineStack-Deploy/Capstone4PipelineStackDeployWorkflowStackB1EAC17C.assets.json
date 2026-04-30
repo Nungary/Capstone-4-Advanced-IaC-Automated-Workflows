@@ -1,0 +1,51 @@
+{
+  "version": "53.0.0",
+  "files": {
+    "5ddf014743d29e3d1d953dd3884df47428ce8df2898cb6b288b92fc4eb924c1d": {
+      "displayName": "WorkflowTaskFunction/Code",
+      "source": {
+        "path": "..\\asset.5ddf014743d29e3d1d953dd3884df47428ce8df2898cb6b288b92fc4eb924c1d",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "430287290736-us-east-1-f31b9c17": {
+          "bucketName": "cdk-hnb659fds-assets-430287290736-us-east-1",
+          "objectKey": "5ddf014743d29e3d1d953dd3884df47428ce8df2898cb6b288b92fc4eb924c1d.zip",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::430287290736:role/cdk-hnb659fds-file-publishing-role-430287290736-us-east-1"
+        }
+      }
+    },
+    "2819175352ad1ce0dae768e83fc328fb70fb5f10b4a8ff0ccbcb791f02b0716d": {
+      "displayName": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Code",
+      "source": {
+        "path": "..\\asset.2819175352ad1ce0dae768e83fc328fb70fb5f10b4a8ff0ccbcb791f02b0716d",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "430287290736-us-east-1-d3662c02": {
+          "bucketName": "cdk-hnb659fds-assets-430287290736-us-east-1",
+          "objectKey": "2819175352ad1ce0dae768e83fc328fb70fb5f10b4a8ff0ccbcb791f02b0716d.zip",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::430287290736:role/cdk-hnb659fds-file-publishing-role-430287290736-us-east-1"
+        }
+      }
+    },
+    "ad172c2461ef81145029d1e6babc7b5b2f669e072233e638a60224594016088a": {
+      "displayName": "Deploy-WorkflowStack Template",
+      "source": {
+        "path": "Capstone4PipelineStackDeployWorkflowStackB1EAC17C.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "430287290736-us-east-1-6b723dbc": {
+          "bucketName": "cdk-hnb659fds-assets-430287290736-us-east-1",
+          "objectKey": "ad172c2461ef81145029d1e6babc7b5b2f669e072233e638a60224594016088a.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::430287290736:role/cdk-hnb659fds-file-publishing-role-430287290736-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

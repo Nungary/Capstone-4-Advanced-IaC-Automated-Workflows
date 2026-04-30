@@ -1,0 +1,21 @@
+{
+  "version": "53.0.0",
+  "files": {
+    "c42c39ffeafa6674f2c0767f2892210ddafd380a46a17208c818dcfee130be91": {
+      "displayName": "Capstone4PipelineStack Template",
+      "source": {
+        "path": "Capstone4PipelineStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "430287290736-us-east-1-66b4bdb9": {
+          "bucketName": "cdk-hnb659fds-assets-430287290736-us-east-1",
+          "objectKey": "c42c39ffeafa6674f2c0767f2892210ddafd380a46a17208c818dcfee130be91.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::430287290736:role/cdk-hnb659fds-file-publishing-role-430287290736-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

@@ -1,17 +1,17 @@
-const { SSMClient, GetParameterCommand } = require('@aws-sdk/client-ssm');
-
-const client = new SSMClient({ region: process.env.AWS_REGION });
+const AWS = require('aws-sdk');
+const ssm = new AWS.SSM();
 
 exports.handler = async (event) => {
     console.log("Lambda triggered with event:", JSON.stringify(event, null, 2));
 
-    const command = new GetParameterCommand({
+    // Retrieve value from SSM Parameter Store
+    const params = {
         Name: '/app/config/greeting',
         WithDecryption: false
-    });
+    };
 
     try {
-        const result = await client.send(command);
+        const result = await ssm.getParameter(params).promise();
         const greeting = result.Parameter.Value;
 
         console.log("Retrieved from SSM:", greeting);
@@ -23,6 +23,6 @@ exports.handler = async (event) => {
         };
     } catch (error) {
         console.error("Error retrieving SSM parameter:", error);
-        throw error;
+        throw error; // Re-throw so Step Functions can handle retries/catch
     }
 };

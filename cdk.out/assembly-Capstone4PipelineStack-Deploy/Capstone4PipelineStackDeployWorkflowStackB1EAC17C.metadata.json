@@ -1,0 +1,294 @@
+{
+  "/Capstone4PipelineStack/Deploy/WorkflowStack": [
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new WorkflowDeployStage (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:65:5)",
+        "new PipelineStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:51:7)",
+        "<anonymous> (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\bin\\app.ts:8:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Deploy/WorkflowStack/LambdaFunctionName": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "LambdaFunctionName"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new WorkflowStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\workflow-stack.ts:102:5)",
+        "new WorkflowDeployStage (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:65:5)",
+        "new PipelineStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:51:7)",
+        "<anonymous> (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\bin\\app.ts:8:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Deploy/WorkflowStack/SSMParameterName": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SSMParameterName"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new WorkflowStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\workflow-stack.ts:107:5)",
+        "new WorkflowDeployStage (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:65:5)",
+        "new PipelineStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:51:7)",
+        "<anonymous> (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\bin\\app.ts:8:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Deploy/WorkflowStack/BootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "BootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...CodePipeline.addStage in aws-cdk-lib...",
+        "new PipelineStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:50:14)",
+        "<anonymous> (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\bin\\app.ts:8:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Deploy/WorkflowStack/CheckBootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CheckBootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...CodePipeline.addStage in aws-cdk-lib...",
+        "new PipelineStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:50:14)",
+        "<anonymous> (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\bin\\app.ts:8:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Deploy/WorkflowStack/AppGreeting/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AppGreeting4455FE37"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new StringParameter2 in aws-cdk-lib...",
+        "new WorkflowStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\workflow-stack.ts:14:25)",
+        "new WorkflowDeployStage (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:65:5)",
+        "new PipelineStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:51:7)",
+        "<anonymous> (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\bin\\app.ts:8:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Deploy/WorkflowStack/WorkflowTaskFunction/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "WorkflowTaskFunction869B9CEC"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Function2 in aws-cdk-lib...",
+        "new WorkflowStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\workflow-stack.ts:21:28)",
+        "new WorkflowDeployStage (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:65:5)",
+        "new PipelineStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:51:7)",
+        "<anonymous> (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\bin\\app.ts:8:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Deploy/WorkflowStack/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Function2 in aws-cdk-lib...",
+        "new WorkflowStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\workflow-stack.ts:21:28)",
+        "new WorkflowDeployStage (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:65:5)",
+        "new PipelineStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:51:7)",
+        "<anonymous> (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\bin\\app.ts:8:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Deploy/WorkflowStack/StateMachineLogs/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "StateMachineLogs3CB16D3C"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new LogGroup2 in aws-cdk-lib...",
+        "new WorkflowStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\workflow-stack.ts:84:25)",
+        "new WorkflowDeployStage (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:65:5)",
+        "new PipelineStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:51:7)",
+        "<anonymous> (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\bin\\app.ts:8:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Deploy/WorkflowStack/Capstone4StateMachine/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Capstone4StateMachineA37E3075"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new StateMachine2 in aws-cdk-lib...",
+        "new WorkflowStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\workflow-stack.ts:90:5)",
+        "new WorkflowDeployStage (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:65:5)",
+        "new PipelineStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:51:7)",
+        "<anonymous> (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\bin\\app.ts:8:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Deploy/WorkflowStack/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...CodePipeline.addStage in aws-cdk-lib...",
+        "new PipelineStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:50:14)",
+        "<anonymous> (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\bin\\app.ts:8:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Deploy/WorkflowStack/WorkflowTaskFunction/ServiceRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "WorkflowTaskFunctionServiceRole00D309DE"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Function2 in aws-cdk-lib...",
+        "new WorkflowStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\workflow-stack.ts:21:28)",
+        "new WorkflowDeployStage (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:65:5)",
+        "new PipelineStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:51:7)",
+        "<anonymous> (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\bin\\app.ts:8:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Deploy/WorkflowStack/WorkflowTaskFunction/LogRetention/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "WorkflowTaskFunctionLogRetentionF94CC6D6"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Function2 in aws-cdk-lib...",
+        "new WorkflowStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\workflow-stack.ts:21:28)",
+        "new WorkflowDeployStage (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:65:5)",
+        "new PipelineStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:51:7)",
+        "<anonymous> (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\bin\\app.ts:8:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Deploy/WorkflowStack/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Function2 in aws-cdk-lib...",
+        "new WorkflowStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\workflow-stack.ts:21:28)",
+        "new WorkflowDeployStage (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:65:5)",
+        "new PipelineStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:51:7)",
+        "<anonymous> (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\bin\\app.ts:8:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Deploy/WorkflowStack/Capstone4StateMachine/Role/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Capstone4StateMachineRole78DFAB8E"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new StateMachine2 in aws-cdk-lib...",
+        "new WorkflowStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\workflow-stack.ts:90:5)",
+        "new WorkflowDeployStage (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:65:5)",
+        "new PipelineStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:51:7)",
+        "<anonymous> (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\bin\\app.ts:8:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Deploy/WorkflowStack/WorkflowTaskFunction/ServiceRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "WorkflowTaskFunctionServiceRoleDefaultPolicy464D08AF"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.grantRead in aws-cdk-lib...",
+        "new WorkflowStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\workflow-stack.ts:35:17)",
+        "new WorkflowDeployStage (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:65:5)",
+        "new PipelineStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:51:7)",
+        "<anonymous> (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\bin\\app.ts:8:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Deploy/WorkflowStack/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Function2 in aws-cdk-lib...",
+        "new WorkflowStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\workflow-stack.ts:21:28)",
+        "new WorkflowDeployStage (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:65:5)",
+        "new PipelineStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:51:7)",
+        "<anonymous> (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\bin\\app.ts:8:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Deploy/WorkflowStack/Capstone4StateMachine/Role/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Capstone4StateMachineRoleDefaultPolicy6867E001"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new StateMachine2 in aws-cdk-lib...",
+        "new WorkflowStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\workflow-stack.ts:90:5)",
+        "new WorkflowDeployStage (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:65:5)",
+        "new PipelineStack (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\lib\\pipeline-stack.ts:51:7)",
+        "<anonymous> (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\bin\\app.ts:8:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ]
+}

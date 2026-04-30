@@ -1,0 +1,309 @@
+{
+  "/Capstone4PipelineStack": [
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "<anonymous> (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\bin\\app.ts:8:1)",
+        "...node internals, ts-node, ts-node, ts-node..."
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Capstone4Pipeline": [
+    {
+      "type": "aws:cdk:warning",
+      "data": "V1 pipeline type is implicitly selected when `pipelineType` is not set. If you want to use V2 type, set `PipelineType.V2`. [ack: @aws-cdk/aws-codepipeline:unspecifiedPipelineType]",
+      "trace": [
+        "Annotations.addMessage (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\node_modules\\aws-cdk-lib\\core\\lib\\annotations.js:1:2399)",
+        "Annotations.addWarningV2 (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\node_modules\\aws-cdk-lib\\core\\lib\\annotations.js:1:1087)",
+        "CodePipeline.doBuildPipeline (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\node_modules\\aws-cdk-lib\\pipelines\\lib\\codepipeline\\codepipeline.js:1:6843)",
+        "CodePipeline.buildPipeline (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\node_modules\\aws-cdk-lib\\pipelines\\lib\\main\\pipeline-base.js:1:3044)",
+        "CodePipeline.buildJustInTime (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\node_modules\\aws-cdk-lib\\pipelines\\lib\\main\\pipeline-base.js:1:3111)",
+        "Object.visit (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\node_modules\\aws-cdk-lib\\pipelines\\lib\\main\\pipeline-base.js:1:1780)",
+        "recurse (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\node_modules\\aws-cdk-lib\\core\\lib\\private\\synthesis.js:2:4723)",
+        "recurse (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\node_modules\\aws-cdk-lib\\core\\lib\\private\\synthesis.js:2:4958)",
+        "recurse (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\node_modules\\aws-cdk-lib\\core\\lib\\private\\synthesis.js:2:4958)",
+        "invokeAspectsV2 (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\node_modules\\aws-cdk-lib\\core\\lib\\private\\synthesis.js:2:3228)",
+        "synthesize (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\node_modules\\aws-cdk-lib\\core\\lib\\private\\synthesis.js:1:1990)",
+        "App.synth (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\node_modules\\aws-cdk-lib\\core\\lib\\stage.js:1:3441)",
+        "process.<anonymous> (C:\\Users\\BEST\\Desktop\\Devops project\\Capstone-4-Advanced-IaC-Automated-Workflows\\node_modules\\aws-cdk-lib\\core\\lib\\app.js:1:2166)",
+        "Object.onceWrapper (node:events:623:26)",
+        "process.emit (node:events:508:28)",
+        "process.emit (node:domain:489:12)",
+        "process.emit.sharedData.processEmitHook.installedValue [as emit] (C:\\Users\\BEST\\AppData\\Local\\npm-cache\\_npx\\1bf7c3c15bf47d04\\node_modules\\@cspotcode\\source-map-support\\source-map-support.js:745:40)"
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/BootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "BootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals, @cspotcode\\source-map-support...",
+        "(no user code in 9007199254740991 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/CheckBootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CheckBootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals, @cspotcode\\source-map-support...",
+        "(no user code in 9007199254740991 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals, @cspotcode\\source-map-support...",
+        "(no user code in 9007199254740991 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Capstone4Pipeline/Pipeline/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Capstone4PipelineDC9D4456"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals, @cspotcode\\source-map-support...",
+        "(no user code in 9007199254740991 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Capstone4Pipeline/CodeBuildActionRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Capstone4PipelineCodeBuildActionRole7368B2A3"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals, @cspotcode\\source-map-support...",
+        "(no user code in 9007199254740991 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Capstone4Pipeline/Pipeline/ArtifactsBucket/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Capstone4PipelineArtifactsBucket85D611EA"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals, @cspotcode\\source-map-support...",
+        "(no user code in 9007199254740991 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Capstone4Pipeline/Pipeline/Role/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Capstone4PipelineRole3935221C"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals, @cspotcode\\source-map-support...",
+        "(no user code in 9007199254740991 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Capstone4Pipeline/CodeBuildActionRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Capstone4PipelineCodeBuildActionRoleDefaultPolicy14CC80F6"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals, @cspotcode\\source-map-support...",
+        "(no user code in 9007199254740991 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Capstone4Pipeline/UpdatePipeline/SelfMutation/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Capstone4PipelineUpdatePipelineSelfMutation84BFDE75"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals, @cspotcode\\source-map-support...",
+        "(no user code in 9007199254740991 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Capstone4Pipeline/Assets/FileRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Capstone4PipelineAssetsFileRole3D00B1E9"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals, @cspotcode\\source-map-support...",
+        "(no user code in 9007199254740991 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Capstone4Pipeline/Assets/FileAsset1/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Capstone4PipelineAssetsFileAsset1F3FB1582"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals, @cspotcode\\source-map-support...",
+        "(no user code in 9007199254740991 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Capstone4Pipeline/Assets/FileAsset2/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Capstone4PipelineAssetsFileAsset2AEADB21F"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals, @cspotcode\\source-map-support...",
+        "(no user code in 9007199254740991 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Capstone4Pipeline/Pipeline/ArtifactsBucket/Policy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Capstone4PipelineArtifactsBucketPolicyC21895B4"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals, @cspotcode\\source-map-support...",
+        "(no user code in 9007199254740991 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Capstone4Pipeline/Pipeline/Role/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Capstone4PipelineRoleDefaultPolicy556C8E6A"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals, @cspotcode\\source-map-support...",
+        "(no user code in 9007199254740991 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Capstone4Pipeline/Pipeline/Source/Nungary_Capstone-4-Advanced-IaC-Automated-Workflows/WebhookResource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Capstone4PipelineSourceNungaryCapstone4AdvancedIaCAutomatedWorkflowsWebhookResource3A0BC0C2"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals, @cspotcode\\source-map-support...",
+        "(no user code in 9007199254740991 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Capstone4Pipeline/UpdatePipeline/SelfMutation/Role/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Capstone4PipelineUpdatePipelineSelfMutationRole094CC9F4"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals, @cspotcode\\source-map-support...",
+        "(no user code in 9007199254740991 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Capstone4Pipeline/Assets/FileRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Capstone4PipelineAssetsFileRoleDefaultPolicyD4347F20"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals, @cspotcode\\source-map-support...",
+        "(no user code in 9007199254740991 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Capstone4Pipeline/Pipeline/Build/Synth/CdkBuildProject/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Capstone4PipelineBuildSynthCdkBuildProject1CCBEF33"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals, @cspotcode\\source-map-support...",
+        "(no user code in 9007199254740991 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Capstone4Pipeline/UpdatePipeline/SelfMutation/Role/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Capstone4PipelineUpdatePipelineSelfMutationRoleDefaultPolicyDB054EEC"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals, @cspotcode\\source-map-support...",
+        "(no user code in 9007199254740991 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Capstone4Pipeline/Pipeline/Build/Synth/CdkBuildProject/Role/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Capstone4PipelineBuildSynthCdkBuildProjectRole833C44E4"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals, @cspotcode\\source-map-support...",
+        "(no user code in 9007199254740991 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/Capstone4PipelineStack/Capstone4Pipeline/Pipeline/Build/Synth/CdkBuildProject/Role/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "Capstone4PipelineBuildSynthCdkBuildProjectRoleDefaultPolicy53A71D17"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals, @cspotcode\\source-map-support...",
+        "(no user code in 9007199254740991 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ]
+}
