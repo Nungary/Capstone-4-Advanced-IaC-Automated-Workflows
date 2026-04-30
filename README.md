@@ -1,12 +1,9 @@
-# Capstone 4 – Multi-Account, Automated & Governed Cloud Platform
+Capstone 4 – Multi-Account, Automated & Governed Cloud Platform
 
-> **Week 4 Capstone** · AWS CDK · CodePipeline · Step Functions · Lambda · SSM Parameter Store
+Week 4 Capstone · AWS CDK · CodePipeline · Step Functions · Lambda · SSM Parameter Store
 
----
 
-## Architecture Overview
-
-```
+Architecture Overview
 GitHub (main branch)
         │  push
         ▼
@@ -36,25 +33,10 @@ GitHub (main branch)
 │  Lambda: capstone4-workflow-task        │
 │  (Node.js 18 · reads SSM at runtime)   │
 └─────────────────────────────────────────┘
-```
+Services Used
+ServiceRoleAWS CDK (TypeScript)Declares all infrastructure as codeAWS CodePipelineCI/CD orchestration – triggers on every push to mainAWS CodeBuildCompiles TypeScript and runs cdk synthAWS Step FunctionsMulti-step workflow with error handlingAWS LambdaServerless compute – retrieves config from SSMAWS SSM Parameter StoreDynamic, centralised configuration storageAmazon CloudWatch LogsLambda and Step Functions execution logs
 
-### Services Used
-
-| Service | Role |
-|---|---|
-| **AWS CDK (TypeScript)** | Declares all infrastructure as code |
-| **AWS CodePipeline** | CI/CD orchestration – triggers on every push to `main` |
-| **AWS CodeBuild** | Compiles TypeScript and runs `cdk synth` |
-| **AWS Step Functions** | Multi-step workflow with error handling |
-| **AWS Lambda** | Serverless compute – retrieves config from SSM |
-| **AWS SSM Parameter Store** | Dynamic, centralised configuration storage |
-| **Amazon CloudWatch Logs** | Lambda and Step Functions execution logs |
-
----
-
-## Repository Structure
-
-```
+Repository Structure
 capstone4/
 ├── bin/
 │   └── app.ts                    # CDK entry point
@@ -69,53 +51,32 @@ capstone4/
 ├── package.json
 ├── tsconfig.json
 └── README.md
-```
 
----
+Step-by-Step Deployment Guide
+Prerequisites
 
-## Step-by-Step Deployment Guide
+AWS CLI configured (aws configure)
+Node.js 18+ and npm installed
+CDK CLI: npm install -g aws-cdk
+CDK bootstrapped in your account/region:
 
-### Prerequisites
-
-- AWS CLI configured (`aws configure`)
-- Node.js 18+ and npm installed
-- CDK CLI: `npm install -g aws-cdk`
-- CDK bootstrapped in your account/region:
-  ```bash
-  export CDK_DEFAULT_ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
+bash  export CDK_DEFAULT_ACCOUNT=$(aws sts get-caller-identity --query Account --output text)
   export CDK_DEFAULT_REGION=us-east-1
   cdk bootstrap aws://$CDK_DEFAULT_ACCOUNT/$CDK_DEFAULT_REGION
-  ```
 
----
-
-### Step 1 – SSM Parameter Store
-
-The SSM parameter is defined directly in the CDK stack (`lib/workflow-stack.ts`):
-
-```typescript
-const configParam = new ssm.StringParameter(this, 'AppGreeting', {
+Step 1 – SSM Parameter Store
+The SSM parameter is defined directly in the CDK stack (lib/workflow-stack.ts):
+typescriptconst configParam = new ssm.StringParameter(this, 'AppGreeting', {
   parameterName: '/app/config/greeting',
   stringValue: 'Hello from CI/CD Automated Infrastructure!',
 });
-```
+CDK also grants the Lambda least-privilege read access:
+typescriptconfigParam.grantRead(workflowLambda);
+This auto-generates an IAM policy allowing only ssm:GetParameter on that specific ARN.
 
-CDK also grants the Lambda **least-privilege** read access:
-
-```typescript
-configParam.grantRead(workflowLambda);
-```
-
-This auto-generates an IAM policy allowing only `ssm:GetParameter` on that specific ARN.
-
----
-
-### Step 2 – Lambda Function
-
-**`lambda/index.js`** uses the AWS SDK to read the parameter at runtime:
-
-```javascript
-const AWS = require('aws-sdk');
+Step 2 – Lambda Function
+lambda/index.js uses the AWS SDK to read the parameter at runtime:
+javascriptconst AWS = require('aws-sdk');
 const ssm = new AWS.SSM();
 
 exports.handler = async (event) => {
@@ -125,156 +86,88 @@ exports.handler = async (event) => {
     console.log("Retrieved from SSM:", greeting);
     return { status: "Success", greeting };
 };
-```
 
----
-
-### Step 3 – Step Functions State Machine
-
+Step 3 – Step Functions State Machine
 The state machine chains three states:
-
-```
 PreProcessing (Pass) → InvokeWorkflowTask (Task) → WorkflowSucceeded (Succeed)
                                   └──────── on error ──→ WorkflowFailed (Fail)
-```
-
-**Retry config** on the Lambda Task state:
-
-```typescript
-invokeTask.addRetry({
+Retry config on the Lambda Task state:
+typescriptinvokeTask.addRetry({
   errors: ['Lambda.ServiceException', 'Lambda.AWSLambdaException', 'States.TaskFailed'],
   maxAttempts: 2,
   interval: cdk.Duration.seconds(2),
   backoffRate: 2,
 });
-```
-
-**Catch** (fallback to Fail state after all retries exhausted):
-
-```typescript
-invokeTask.addCatch(failState, {
+Catch (fallback to Fail state after all retries exhausted):
+typescriptinvokeTask.addCatch(failState, {
   errors: ['States.ALL'],
   resultPath: '$.error',
 });
-```
 
----
-
-### Step 4 – CI/CD Pipeline Setup
-
-#### 4a. Store your GitHub token in Secrets Manager
-
-```bash
-aws secretsmanager create-secret \
+Step 4 – CI/CD Pipeline Setup
+4a. Store your GitHub token in Secrets Manager
+bashaws secretsmanager create-secret \
   --name github-token \
   --secret-string "ghp_YOUR_PERSONAL_ACCESS_TOKEN"
-```
 
-> The token needs **`repo`** scope so CodePipeline can clone your repository.
+The token needs repo scope so CodePipeline can clone your repository.
 
-#### 4b. Update the pipeline stack with your repo details
-
-In `lib/pipeline-stack.ts`, replace:
-
-```typescript
-const GITHUB_OWNER = 'YOUR_GITHUB_USERNAME';
+4b. Update the pipeline stack with your repo details
+In lib/pipeline-stack.ts, replace:
+typescriptconst GITHUB_OWNER = 'YOUR_GITHUB_USERNAME';
 const GITHUB_REPO  = 'YOUR_GITHUB_REPO_NAME';
-```
-
-#### 4c. Install dependencies and deploy the pipeline
-
-```bash
-npm ci
+4c. Install dependencies and deploy the pipeline
+bashnpm ci
 npm run build
 cdk deploy Capstone4PipelineStack
-```
 
-> After this one-time manual deploy, every subsequent `git push` to `main` triggers the pipeline automatically.
+After this one-time manual deploy, every subsequent git push to main triggers the pipeline automatically.
 
-#### 4d. Push your code to GitHub to trigger the pipeline
-
-```bash
-git init
+4d. Push your code to GitHub to trigger the pipeline
+bashgit init
 git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
 git add .
 git commit -m "feat: capstone 4 initial deployment"
 git push -u origin main
-```
 
----
-
-### Step 5 – Test the Step Functions Execution
-
+Step 5 – Test the Step Functions Execution
 Once the pipeline finishes deploying, manually start an execution:
 
-```bash
-aws stepfunctions start-execution \
-  --state-machine-arn arn:aws:states:us-east-1:YOUR_ACCOUNT:stateMachine:capstone4-workflow-statemachine \
-  --input '{}'
-```
+trigger it from the AWS Console → Step Functions → capstone4-workflow-statemachine → Start execution.
 
-Or trigger it from the **AWS Console → Step Functions → capstone4-workflow-statemachine → Start execution**.
+Screenshots
+1 – CodePipeline Execution
+Pipeline created and connected to GitHub. Source stage succeeded. Build stage failed due to an AWS account-level AccountLimitExceededException (CodeBuild quota) — not a code issue. WorkflowStack was deployed successfully via cdk deploy --all as a workaround.
+<img width="1568" height="538" alt="image" src="https://github.com/user-attachments/assets/46d06e3c-9677-4058-934d-36d185f5120f" />
 
----
+<img width="1568" height="687" alt="image" src="https://github.com/user-attachments/assets/e3cdbf80-cb4f-4a2d-9c87-3c9372612883" />
 
-## Required Screenshots
+<img width="1568" height="780" alt="image" src="https://github.com/user-attachments/assets/3f676b80-6c84-4d6f-b8ce-bf89fac3f6c4" />
 
-### 1 – Successful CodePipeline Execution
 
-> Navigate to **AWS Console → CodePipeline → capstone4-cicd-pipeline**
+2 – Step Functions Execution (Succeeded)
+State machine executed successfully in 0.825s. All active states completed green. WorkflowFailed is the unused Catch error path — it was never triggered.
 
-Expected view: all stages (Source, Build, UpdatePipeline, Deploy) showing **Succeeded** in green.
+<img width="1568" height="537" alt="image" src="https://github.com/user-attachments/assets/51da6987-16f6-4aeb-b162-1b1c8718977a" />
 
-📸 _[Insert screenshot here]_
+<img width="1568" height="782" alt="image" src="https://github.com/user-attachments/assets/4648a7a4-63bb-4925-89ea-0ce1540ebdb9" />
 
----
+<img width="1075" height="728" alt="image" src="https://github.com/user-attachments/assets/ef10d327-bb06-46f2-aee3-60921572e45f" />
 
-### 2 – Step Functions Visual Graph (Successful Execution)
 
-> Navigate to **Step Functions → capstone4-workflow-statemachine → Executions → [latest]**
 
-Expected view: the execution graph with all states highlighted green:
-- `PreProcessing` → green
-- `InvokeWorkflowTask` → green
-- `WorkflowSucceeded` → green
+3 – CloudWatch Logs: SSM Parameter Retrieved
+Lambda successfully retrieved the value from SSM Parameter Store at runtime.
 
-📸 _[Insert screenshot here]_
+<img width="1558" height="784" alt="image" src="https://github.com/user-attachments/assets/e86fc417-1137-49ae-9287-a1d3a1f1aa46" />
 
----
-
-### 3 – CloudWatch Logs: Lambda Retrieving SSM Value
-
-> Navigate to **CloudWatch → Log Groups → /aws/lambda/capstone4-workflow-task → [latest log stream]**
-
-Expected log output:
-
-```
-Lambda triggered with event: {}
-Retrieved from SSM: Hello from CI/CD Automated Infrastructure!
-```
-
-📸 _[Insert screenshot here]_
-
----
-
-## Key IAM Permissions
-
+Key IAM Permissions
 The CDK stack auto-generates minimal IAM policies:
+PrincipalPermissionResourceLambda execution rolessm:GetParameter/app/config/greeting ARN onlyStep Functions execution rolelambda:InvokeFunctioncapstone4-workflow-task onlyCodeBuild service rolests:AssumeRoleCDK deploy roles
 
-| Principal | Permission | Resource |
-|---|---|---|
-| Lambda execution role | `ssm:GetParameter` | `/app/config/greeting` ARN only |
-| Step Functions execution role | `lambda:InvokeFunction` | `capstone4-workflow-task` only |
-| CodeBuild service role | `sts:AssumeRole` | CDK deploy roles |
-
----
-
-## Cleanup
-
+Cleanup
 To tear down all resources and avoid ongoing charges:
-
-```bash
-# Destroy the application stack
+bash# Destroy the application stack
 cdk destroy WorkflowStack
 
 # Destroy the pipeline stack
@@ -282,13 +175,10 @@ cdk destroy Capstone4PipelineStack
 
 # Remove the GitHub token secret
 aws secretsmanager delete-secret --secret-id github-token --force-delete-without-recovery
-```
 
----
+Lessons Learned
 
-## Lessons Learned
-
-- **CDK Pipelines** self-mutate — after the first deploy the pipeline updates itself from code changes.
-- **Step Functions retries** are defined per-error type, allowing fine-grained resilience without code changes.
-- **SSM Parameter Store** decouples configuration from code; updating a parameter value requires no Lambda redeployment.
-- **`grantRead()`** in CDK auto-generates least-privilege IAM policies, reducing manual policy management.
+CDK Pipelines self-mutate — after the first deploy the pipeline updates itself from code changes.
+Step Functions retries are defined per-error type, allowing fine-grained resilience without code changes.
+SSM Parameter Store decouples configuration from code; updating a parameter value requires no Lambda redeployment.
+grantRead() in CDK auto-generates least-privilege IAM policies, reducing manual policy management.
